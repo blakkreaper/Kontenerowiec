@@ -1,0 +1,19 @@
+package com.company;
+
+public class Kontener {
+    double waga;
+    String nazwaTowaru;
+
+    public Kontener() {
+        this.waga = (Math.random() * 50000) + 10000;
+        nazwaTowaru = zaladujTowar();
+    }
+
+    public String zaladujTowar() {
+        String[] towary = {"zabawki", "kosiarki", "narzedzia", "słodycze"};
+        nazwaTowaru = towary[(int) (Math.random() * 4)];
+        return nazwaTowaru;
+    }
+
+
+}
