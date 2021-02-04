@@ -1,0 +1,18 @@
+package com.company;
+
+public class Reefer extends Kontener {
+
+
+    @Override
+    public String zaladujTowar() {
+        String[] towary = {"gruszki", "banany", "jabłka", "pomidory"};
+        nazwaTowaru = towary[(int) (Math.random() * 4)];
+        return nazwaTowaru;
+    }
+
+    @Override
+    public String toString() {
+        return "Reefer" + "   " + waga +
+                "   " + nazwaTowaru;
+    }
+}
