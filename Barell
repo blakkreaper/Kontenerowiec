@@ -1,0 +1,19 @@
+package com.company;
+
+public class Barell extends Kontener {
+
+
+    @Override
+    public String zaladujTowar() {
+        String[] towary = {"ropa naftowa", "sok jabłkowy", "mleko", "chemikalia"};
+        nazwaTowaru = towary[(int) (Math.random() * 4)];
+        return nazwaTowaru;
+    }
+
+    @Override
+    public String toString() {
+        return "Barell" +
+                "   " + waga +
+                "   " + nazwaTowaru;
+    }
+}
