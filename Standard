@@ -1,0 +1,10 @@
+package com.company;
+
+public class Standard extends Kontener {
+
+    @Override
+    public String toString() {
+        return "Standard" + "   " + waga +
+                    "   " + nazwaTowaru;
+    }
+}
