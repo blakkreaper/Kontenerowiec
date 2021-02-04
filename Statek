@@ -1,0 +1,51 @@
+package com.company;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Statek {
+    String[][] titanic;
+
+    public Statek() {
+        this.titanic = new String[100][150];
+    }
+
+    public void generujKontenery(Kontener[] konteners) {
+        int rnd;
+        for (int i = 0; i < konteners.length; i++) {
+            rnd = (int) (Math.random() * 4);
+            switch (rnd) {
+                case 0: {
+                    konteners[i] = new Standard();
+                    break;
+                }
+                case 1: {
+                    konteners[i] = new Reefer();
+                    break;
+                }
+                case 2: {
+                    konteners[i] = new OpenTop();
+                    break;
+                }
+                case 3: {
+                    konteners[i] = new Barell();
+                    break;
+                }
+            }
+        }
+    }
+
+    public void zaladujStatek(File file) throws FileNotFoundException {
+        int pointer = 1;
+        Scanner in = new Scanner(file);
+        for (int i = titanic[0].length/2 - 1; i >= 0; i--) {
+            for (int j = 0; j < titanic.length; j++) {
+                titanic[j][i] = in.nextLine();
+                titanic[j][i + pointer] = in.nextLine();
+            }
+            pointer += 2;
+        }
+    }
+
+}
