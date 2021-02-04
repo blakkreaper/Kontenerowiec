@@ -1,0 +1,51 @@
+package com.company;
+
+import java.io.*;
+
+
+public class S21462 {
+
+    public static void main(String[] args) throws FileNotFoundException {
+        Kontener[] sort_tab = new Kontener[15000];
+        Statek statek = new Statek();
+        statek.generujKontenery(sort_tab);
+
+        sort_function(sort_tab);
+
+        PrintWriter zapis = new PrintWriter("Spis kontenerów.txt");
+        for (int i = 0; i < sort_tab.length; i++) {
+            zapis.println(sort_tab[i].toString());
+        }
+        zapis.close();
+
+        File file = new File("C:\\Users\\mlody\\Desktop\\JAVA\\ProjektZaliczenie\\Spis kontenerów.txt");
+        statek.zaladujStatek(file);
+
+        int positioner = 1;
+        PrintWriter zapis2 = new PrintWriter("Zestawienie.txt");
+        for (int i = 0; i < statek.titanic.length; i++) {
+            for (int j = 0; j < statek.titanic[i].length; j++) {
+                zapis2.println(positioner + ")  " + i + "  " + j + "   " + statek.titanic[i][j]);
+                positioner++;
+            }
+        }
+        zapis2.close();
+
+    }
+
+    public static void sort_function(Kontener[] tab) {
+        Kontener tmp;
+        int n = tab.length;
+        do {
+            for (int i = 0; i < tab.length - 1; i++) {
+                if (tab[i].waga < tab[i + 1].waga) {
+                    tmp = tab[i];
+                    tab[i] = tab[i + 1];
+                    tab[i + 1] = tmp;
+                }
+            }
+            n -= 1;
+        } while (n > 1);
+    }
+
+}
